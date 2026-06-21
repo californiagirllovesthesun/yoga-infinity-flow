@@ -16,7 +16,6 @@
             align-items: center;
         }
         
-        /* Header Styling */
         #header-container {
             text-align: center;
             margin-bottom: 50px;
@@ -36,7 +35,7 @@
             text-transform: uppercase;
         }
 
-        /* Metrics Row */
+        /* Clickable Metrics Cards */
         #metrics-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -51,6 +50,13 @@
             border-radius: 8px;
             padding: 25px;
             text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .metric-card:hover {
+            background-color: #1c1918;
+            border-color: #cc721b;
+            transform: translateY(-2px);
         }
         .metric-number {
             color: #e5a93c;
@@ -97,7 +103,7 @@
             padding: 12px 20px;
             font-size: 1rem;
             border-radius: 6px;
-            width: 280px;
+            width: 320px;
             font-family: inherit;
         }
         button {
@@ -159,15 +165,15 @@
     </div>
 
     <div id="metrics-container">
-        <div class="metric-card">
+        <div class="metric-card" id="card-tier1">
             <div class="metric-number">84</div>
             <div class="metric-label">Foundational</div>
         </div>
-        <div class="metric-card">
+        <div class="metric-card" id="card-tier2">
             <div class="metric-number">908</div>
             <div class="metric-label">Master Chart</div>
         </div>
-        <div class="metric-card">
+        <div class="metric-card" id="card-shiva">
             <div class="metric-number">8,000</div>
             <div class="metric-label">Variations</div>
         </div>
@@ -179,20 +185,20 @@
             <select id="tier-select">
                 <option value="all">All Available Asanas</option>
                 <option value="tier1">84 Foundational Asanas</option>
-                <option value="tier2">Intermediate Extensions</option>
+                <option value="tier2">908 Master Chart Edition</option>
+                <option value="shiva">8,400,000 Divine Asanas of Lord Shiva</option>
             </select>
             <button id="manifest-btn">Manifest Pose</button>
         </div>
     </div>
 
     <div id="display-panel">
-        <div id="tier-badge">Tier 1: Foundational Asana</div>
-        <h2 id="pose-title">Padmasana (Lotus Seat)</h2>
-        <p id="pose-description">The ultimate cross-legged baseline architecture anchoring structural symmetry for deep cosmic internal meditative focus.</p>
+        <div id="tier-badge">System Ready</div>
+        <h2 id="pose-title">Select parameters above</h2>
+        <p id="pose-description">Click a status metric block or configure the dropdown module filters to pull data pathways from the matrix.</p>
     </div>
 
     <script src="app.js"></script>
 
 </body>
 </html>
-

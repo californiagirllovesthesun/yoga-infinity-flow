@@ -19,13 +19,6 @@ let currentMenuState = "MAIN";
 let currentBrowsingPage = 0;
 const PAGE_SIZE = 10;
 
-// Replicating your Scanner/Console Flow UI
-const consoleDisplay = document.getElementById("consoleDisplay");
-const menuOptions = document.getElementById("menuOptions");
-const inputContainer = document.getElementById("inputContainer");
-const userInput = document.getElementById("userInput");
-const navCrumbs = document.getElementById("navCrumbs");
-
 function printToConsole(text) {
     consoleDisplay.textContent = text;
 }
@@ -227,4 +220,15 @@ function runDedicatedWitnessMeditation() {
 }
 
 // Start Engine
-renderMenu();
+// Master initialization block
+let consoleDisplay, menuOptions, navCrumbs, inputContainer, userInput;
+
+window.onload = function() {
+    consoleDisplay = document.getElementById("console-display");
+    menuOptions = document.getElementById("menu-options");
+    navCrumbs = document.getElementById("nav-crumbs");
+    inputContainer = document.getElementById("input-container");
+    userInput = document.getElementById("user-input");
+
+    renderMenu();
+};

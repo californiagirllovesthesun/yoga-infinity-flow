@@ -35,7 +35,7 @@
             text-transform: uppercase;
         }
 
-        /* Clickable Metrics Cards */
+        /* Metric Cards */
         #metrics-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -93,7 +93,8 @@
         .interface-row {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            align-items: center;
+            gap: 15px;
             flex-wrap: wrap;
         }
         select {
@@ -101,17 +102,17 @@
             color: #ffffff;
             border: 1px solid #3a332f;
             padding: 12px 20px;
-            font-size: 1rem;
+            font-size: 0.95rem;
             border-radius: 6px;
-            width: 320px;
+            width: 380px;
             font-family: inherit;
         }
         button {
             background-color: #cc721b;
             color: #000000;
             border: none;
-            padding: 12px 30px;
-            font-size: 1rem;
+            padding: 12px 24px;
+            font-size: 0.95rem;
             font-weight: bold;
             letter-spacing: 1px;
             border-radius: 6px;
@@ -122,8 +123,20 @@
         button:hover {
             background-color: #e58324;
         }
+        
+        /* New Exit Button Styling */
+        .exit-btn {
+            background-color: #1c1918;
+            color: #8c8275;
+            border: 1px solid #3a332f;
+        }
+        .exit-btn:hover {
+            background-color: #2b2522;
+            color: #ff5555;
+            border-color: #ff5555;
+        }
 
-        /* Output Display Area */
+        /* Display Panel Area */
         #display-panel {
             background-color: #141212;
             border: 1px solid #24201e;
@@ -154,9 +167,10 @@
             line-height: 1.6;
             max-width: 700px;
             margin: 0 auto;
+            white-space: pre-line; /* Preserves terminal line breaks */
         }
 
-        /* Dynamic Navigation Search Module */
+        /* Coordinate Finder Search Input */
         #search-container {
             width: 100%;
             max-width: 900px;
@@ -183,7 +197,7 @@
             letter-spacing: 1px;
         }
 
-        /* Tier Options Gallery Grid */
+        /* Options Gallery Grid */
         #gallery-title {
             color: #f7e7ad;
             font-size: 1.2rem;
@@ -241,9 +255,9 @@
             <div class="metric-number">908</div>
             <div class="metric-label">Master Chart</div>
         </div>
-        <div class="metric-card" id="card-shiva">
-            <div class="metric-number">8,400,000</div>
-            <div class="metric-label">Variations</div>
+        <div class="metric-card" id="card-variations">
+            <div class="metric-number">8,000</div>
+            <div class="metric-label">Variations Matrix</div>
         </div>
     </div>
 
@@ -251,11 +265,16 @@
         <div class="panel-title">Choose a Tier and Manifest a Pose</div>
         <div class="interface-row">
             <select id="tier-select">
-                <option value="tier1">84 Foundational Asanas</option>
-                <option value="tier2">908 Master Chart Edition</option>
-                <option value="shiva">8,400,000 Divine Asanas of Lord Shiva</option>
+                <option value="tier1">1. 84 Foundational Asanas Edition</option>
+                <option value="tier2">2. 908 Master Chart Edition</option>
+                <option value="variations">3. Style-Specific Variations Matrix (8000)</option>
+                <option value="shiva">4. 8,400,000 Infinite Divine Asanas of Lord Shiva</option>
+                <option value="sakshi">5. Invoke Sakshi Bhava (Witness Consciousness)</option>
+                <option value="wisdom">6. Explore Yoga Wisdom & Eternal Happiness</option>
+                <option value="limbs">7. Traverse Patanjali's Eight Limbs (Ashtanga)</option>
             </select>
             <button id="manifest-btn">Manifest Pose</button>
+            <button id="exit-btn" class="exit-btn">Exit Matrix Engine</button>
         </div>
     </div>
 
@@ -277,3 +296,4 @@
 
 </body>
 </html>
+

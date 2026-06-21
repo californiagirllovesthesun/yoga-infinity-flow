@@ -109,13 +109,12 @@ function getTierLimits(tierValue) {
     return { max: 0, key: tierValue, numerical: false };
 }
 
-// --- ENGINE REACTION ACTION MAIN EXECUTIONER ---
+// --- ENGINE EXECUTION ENGINE ---
 function manifestRandomPose() {
     const currentTier = tierSelect.value;
     const limits = getTierLimits(currentTier);
 
     if (limits.numerical) {
-        // Safe-keep numerical layout blocks (Options 1, 2, 3, 4)
         searchContainer.style.display = "block";
         galleryTitle.style.display = "block";
         const randomID = Math.floor(Math.random() * limits.max) + 1;
@@ -124,7 +123,6 @@ function manifestRandomPose() {
         searchLabel.textContent = `Explore Range (1 - ${limits.max.toLocaleString()}):`;
         renderGalleryView(limits.key, randomID, limits.max);
     } else {
-        // Safe-keep text content blocks (Options 5, 6, 7)
         searchContainer.style.display = "none";
         galleryTitle.style.display = "none";
         tierGallery.innerHTML = "";
@@ -153,7 +151,6 @@ function handleCoordinateSearch() {
     renderGalleryView(limits.key, userVal, limits.max);
 }
 
-// Renders the preserved surrounding card neighborhood layout navigation element loops
 function renderGalleryView(tierKey, targetID, maxLimit) {
     const focalPose = generateAsanaObject(tierKey, targetID);
     displayPose(focalPose);
@@ -192,8 +189,7 @@ function displayPose(pose) {
     poseDescription.textContent = pose.description;
 }
 
-// --- CALMING OCEAN LIVE CAM STREAM REDIRECT REDIRECT ENGINE ---
+// --- COSMIC DISPLACEMENT CHANNEL TERMINAL ---
 function exitToOceanCam() {
-    window.location.href = "https://www.youtube.com/watch?v=b7d7_G7B8p8";
+    window.location.href = "https://www.goodcleanfunusa.com/pages/surf-cam";
 }
-

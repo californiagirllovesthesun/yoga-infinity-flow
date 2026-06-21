@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+p.one {
+  border-style: solid;
+  border-width: 5px;
+  background-color: green;
+}
+
+p.two {
+  border-style: solid;
+  border-width: medium;
+  background-color: green;
+}
+
+p.three {
+  border-style: dotted;
+  border-width: 2px;
+  background-color: green;
+}
+
+p.four {
+  border-style: dotted;
+  border-width: thick;
+  background-color: green;
+}
+
+p.five {
+  border-style: double;
+  border-width: 15px;
+  background-color: green;
+}
+
+p.six {
+  border-style: double;
+  border-width: thick;
+  background-color: green;
+}
+</style>
+</head>
+<body>
+
+<h2>Yoga</h2>
+<p>Study of:</p>
+
+<p class="one">Sacred Om. Sacred sound, syllable, mantra.
+<img id="3om" src="data:image/png;base64,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">
+
+<iframe width="642" height="361" src="https://www.youtube.com/embed/5BLZNhGVbEk" title="OM Chanting 432 Hz, Wipes out all Negative Energy, Singing Bowls, Meditation Music" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="1129" height="635" src="https://www.youtube.com/embed/q2u6Hr52Lno" title="Close Your Eyes and Feel the Strong Energy of LORD SHIVA through this Musical ASHTAKAM l SHIVA PURAN" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+</p>
+
+
+<p class="two">Some text.</p>
+<p class="three">Some text.</p>
+<p class="four">Some text.</p>
+<p class="five">Some text.</p>
+<p class="six">Some text.</p>
+
+<p><b>Note:</b> Have a great day.</p>
+
+<h3> गच्छ (gachchha):This is the root verb meaning "to go" <a  href="https://californiagirllovesthesun.github.io/KCarlsonWebsite/index.html#page1">Go Back to Home Page</a></h3>
+
+
+
+</body>
+</html>
+
+

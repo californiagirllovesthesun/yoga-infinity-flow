@@ -133,7 +133,7 @@
             max-width: 900px;
             box-sizing: border-box;
             text-align: center;
-            min-height: 200px;
+            margin-bottom: 30px;
         }
         #tier-badge {
             color: #e5a93c;
@@ -154,6 +154,47 @@
             line-height: 1.6;
             max-width: 700px;
             margin: 0 auto;
+        }
+
+        /* NEW Section: Tier Options Gallery Grid */
+        #gallery-title {
+            color: #f7e7ad;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin: 20px 0;
+            display: none; /* Hidden until Manifest button is clicked */
+        }
+        #tier-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 900px;
+            margin-top: 10px;
+        }
+        .gallery-card {
+            background-color: #141212;
+            border: 1px solid #24201e;
+            border-radius: 6px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .gallery-card:hover {
+            border-color: #e5a93c;
+            background-color: #1c1918;
+        }
+        .gallery-pose-name {
+            color: #f7e7ad;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        .gallery-pose-desc {
+            color: #8c8275;
+            font-size: 0.85rem;
+            line-height: 1.4;
         }
     </style>
 </head>
@@ -194,9 +235,12 @@
 
     <div id="display-panel">
         <div id="tier-badge">Tier 1: Foundational Asana</div>
-        <h2 id="pose-title">Padmasana (Lotus Seat))</h2>
-        <p id="pose-description">The Ultimate cross-legged baseline architecture anchoring structural symmetry for deep cosmic internal meditative focus.</p>
+        <h2 id="pose-title">Padmasana (Lotus Seat)</h2>
+        <p id="pose-description">The ultimate cross-legged baseline architecture anchoring structural symmetry for deep cosmic internal meditative focus.</p>
     </div>
+
+    <div id="gallery-title">Available Postures In Selected Tier</div>
+    <div id="tier-gallery"></div>
 
     <script src="app.js"></script>
 

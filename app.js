@@ -26,7 +26,7 @@ const poseDatabase = {
 
 // --- DOM ELEMENT SELECTION BLOCKS ---
 let tierSelect, manifestBtn, tierBadge, poseTitle, poseDescription;
-let cardTier1, cardTier2, cardShiva;
+let cardTier1, cardTier2, cardShiva, tierGallery, galleryTitle;
 
 window.onload = function() {
     tierSelect = document.getElementById("tier-select");
@@ -34,12 +34,17 @@ window.onload = function() {
     tierBadge = document.getElementById("tier-badge");
     poseTitle = document.getElementById("pose-title");
     poseDescription = document.getElementById("pose-description");
+    
+    // New components
+    tierGallery = document.getElementById("tier-gallery");
+    galleryTitle = document.getElementById("gallery-title");
 
     cardTier1 = document.getElementById("card-tier1");
     cardTier2 = document.getElementById("card-tier2");
     cardShiva = document.getElementById("card-shiva");
 
-    teirSeclect.value = "tier1";"    
+    // Default configuration option values
+    tierSelect.value = "tier1";
 
     manifestBtn.addEventListener("click", manifestRandomPose);
 
@@ -53,6 +58,7 @@ function triggerCardSelection(selectedCategory) {
     manifestRandomPose();
 }
 
+// --- ENGINE MANIFESTATION ENGINE ---
 function manifestRandomPose() {
     const selectedValue = tierSelect.value;
     let availablePoses = [];
@@ -67,12 +73,39 @@ function manifestRandomPose() {
         availablePoses = poseDatabase.shiva;
     }
 
+    // 1. Pick and show the primary randomized highlight pose
     if (availablePoses.length > 0) {
         const randomIndex = Math.floor(Math.random() * availablePoses.length);
         const selectedPose = availablePoses[randomIndex];
 
-        tierBadge.textContent = selectedPose.tier;
-        poseTitle.textContent = selectedPose.name;
-        poseDescription.textContent = selectedPose.description;
+        displayPose(selectedPose);
+
+        // 2. Clear out old gallery cards and print ALL options in this tier group
+        tierGallery.innerHTML = "";
+        galleryTitle.style.display = "block"; // Turn on title visibility
+
+        availablePoses.forEach(pose => {
+            // Create a small card element for each pose option
+            const card = document.createElement("div");
+            card.className = "gallery-card";
+            
+            card.innerHTML = `
+                <div class="gallery-pose-name">${pose.name}</div>
+                <div class="gallery-pose-desc">${pose.description.substring(0, 75)}...</div>
+            `;
+
+            // If a user clicks an option from the list, load it up to the main display panel!
+            card.addEventListener("click", () => displayPose(pose));
+
+            tierGallery.appendChild(card);
+        });
     }
 }
+
+// Helper to write values into the central viewport panel
+function displayPose(pose) {
+    tierBadge.textContent = pose.tier;
+    poseTitle.textContent = pose.name;
+    poseDescription.textContent = pose.description;
+}
+

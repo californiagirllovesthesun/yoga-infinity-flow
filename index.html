@@ -92,10 +92,17 @@
         }
         .interface-row {
             display: flex;
-            justify-content: center;
+            flex-direction: column; /* Stacks the action buttons cleanly */
             align-items: center;
             gap: 15px;
+        }
+        .input-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
             flex-wrap: wrap;
+            width: 100%;
+            margin-bottom: 5px;
         }
         select {
             background-color: #1c1918;
@@ -118,13 +125,26 @@
             border-radius: 6px;
             cursor: pointer;
             text-transform: uppercase;
-            transition: background 0.2s;
+            transition: all 0.2s;
+            width: 100%;
+            max-width: 500px;
         }
         button:hover {
             background-color: #e58324;
         }
         
-        /* Updated Cosmic Button Styling */
+        /* Cosmic & Star Button Styling */
+        .star-btn {
+            background-color: #131722;
+            color: #a5b4fc;
+            border: 1px solid #312e81;
+        }
+        .star-btn:hover {
+            background-color: #1e1b4b;
+            color: #c7d2fe;
+            border-color: #6366f1;
+            box-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
+        }
         .exit-btn {
             background-color: #1c1918;
             color: #8c8275;
@@ -264,16 +284,19 @@
     <div id="control-panel">
         <div class="panel-title">Choose a Tier and Manifest a Pose</div>
         <div class="interface-row">
-            <select id="tier-select">
-                <option value="tier1">1. 84 Foundational Asanas Edition</option>
-                <option value="tier2">2. 908 Master Chart Edition</option>
-                <option value="variations">3. Style-Specific Variations Matrix (8000)</option>
-                <option value="shiva">4. 8,400,000 Infinite Divine Asanas of Lord Shiva</option>
-                <option value="sakshi">5. Invoke Sakshi Bhava (Witness Consciousness)</option>
-                <option value="wisdom">6. Explore Yoga Wisdom & Eternal Happiness</option>
-                <option value="limbs">7. Traverse Patanjali's Eight Limbs (Ashtanga)</option>
-            </select>
-            <button id="manifest-btn">Manifest Pose</button>
+            <div class="input-group">
+                <select id="tier-select">
+                    <option value="tier1">1. 84 Foundational Asanas Edition</option>
+                    <option value="tier2">2. 908 Master Chart Edition</option>
+                    <option value="variations">3. Style-Specific Variations Matrix (8000)</option>
+                    <option value="shiva">4. 8,400,000 Infinite Divine Asanas of Lord Shiva</option>
+                    <option value="sakshi">5. Invoke Sakshi Bhava (Witness Consciousness)</option>
+                    <option value="wisdom">6. Explore Yoga Wisdom & Eternal Happiness</option>
+                    <option value="limbs">7. Traverse Patanjali's Eight Limbs (Ashtanga)</option>
+                </select>
+                <button id="manifest-btn">Manifest Pose</button>
+            </div>
+            <button id="star-btn" class="star-btn">Ascend into the Infinite Star Matrix</button>
             <button id="exit-btn" class="exit-btn">Dissolve Identity into the Absolute Ocean</button>
         </div>
     </div>

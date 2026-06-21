@@ -64,12 +64,13 @@ function generateAsanaObject(tierKey, id) {
 }
 
 // --- DOM REGISTRATION SELECTION BLOCKS ---
-let tierSelect, manifestBtn, exitBtn, tierBadge, poseTitle, poseDescription;
+let tierSelect, manifestBtn, starBtn, exitBtn, tierBadge, poseTitle, poseDescription;
 let cardTier1, cardTier2, cardVariations, tierGallery, galleryTitle, searchContainer, coordinateInput, searchLabel;
 
 window.onload = function() {
     tierSelect = document.getElementById("tier-select");
     manifestBtn = document.getElementById("manifest-btn");
+    starBtn = document.getElementById("star-btn");
     exitBtn = document.getElementById("exit-btn");
     tierBadge = document.getElementById("tier-badge");
     poseTitle = document.getElementById("pose-title");
@@ -88,12 +89,13 @@ window.onload = function() {
     tierSelect.value = "tier1";
 
     manifestBtn.addEventListener("click", manifestRandomPose);
+    starBtn.addEventListener("click", navigateToStars);
     exitBtn.addEventListener("click", exitToOceanCam);
     coordinateInput.addEventListener("input", handleCoordinateSearch);
 
     cardTier1.addEventListener("click", () => triggerCardSelection("tier1"));
     cardTier2.addEventListener("click", () => triggerCardSelection("tier2"));
-    cardVariations.addEventListener("click", () => triggerCardSelection("variations"));
+    cardVariations.addEventListener("click", () => triggerCategorySelection("variations"));
 };
 
 function triggerCardSelection(selectedCategory) {
@@ -187,6 +189,11 @@ function displayPose(pose) {
     tierBadge.textContent = pose.tier;
     poseTitle.textContent = pose.name;
     poseDescription.textContent = pose.description;
+}
+
+// --- CELESTIAL NAVIGATOR ROUTINE ---
+function navigateToStars() {
+    window.location.href = "https://stellarium-web.org/";
 }
 
 // --- COSMIC DISPLACEMENT CHANNEL TERMINAL ---

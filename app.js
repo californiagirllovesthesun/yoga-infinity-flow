@@ -1,32 +1,55 @@
-// --- COMPLETE YOGA MATRIX DATA ARCHITECTURE ---
-const poseDatabase = {
-    tier1: [
-        { name: "Padmasana (Lotus Seat)", tier: "Tier 1: Foundational Asana", description: "The ultimate cross-legged baseline architecture anchoring structural symmetry for deep cosmic internal meditative focus." },
-        { name: "Bhujangasana (Cobra Pose)", tier: "Tier 1: Foundational Asana", description: "Shed old skins, dissolve fear, and crawl close to the unshakeable heartbeat of the earth. Opens the heart space dynamically." },
-        { name: "Garudasana (Eagle Pose)", tier: "Tier 1: Foundational Asana", description: "Cultivate an unblinking sovereign gaze. Step into the expansive bird's-eye horizon vantage point to balance focus and strength." },
-        { name: "Tadasana (Mountain Pose)", tier: "Tier 1: Foundational Asana", description: "The elemental blueprint of standing alignment. Anchor down into the earth's crust while extending the spine toward the celestial zenith." },
-        { name: "Adho Mukha Svanasana (Downward Dog)", tier: "Tier 1: Foundational Asana", description: "An inverted cosmic V-shape that recalibrates neural pathways, stretches the posterior chain, and anchors weight deeply into the palms." },
-        { name: "Trikonasana (Triangle Pose)", tier: "Tier 1: Foundational Asana", description: "A sacred geometric triad layout balancing three distinct spatial vectors to clear channels across the material body." }
-    ],
-    tier2: [
-        { name: "Sirsasana (Headstand)", tier: "908 Master Chart Edition", description: "Inverting gravity to alter cosmic perception. Elevates pure awareness while steadying the core processing systems." },
-        { name: "Natarajasana (King Dancer)", tier: "908 Master Chart Edition", description: "A fluid balancing dance of cosmic creation and dissolution. Merges intense focus with elegant grace." },
-        { name: "Paschimottanasana (Seated Forward Bend)", tier: "908 Master Chart Edition", description: "Intense western stretch elemental fold. Ignites gastric fires and draws energy up the central axis network." },
-        { name: "Bakasana (Crow Pose)", tier: "908 Master Chart Edition", description: "A soaring lift off the wrists requiring complete core compression and deep trust in physical leverage parameters." },
-        { name: "Dhanurasana (Bow Pose)", tier: "908 Master Chart Edition", description: "The body mimics a fully drawn archer's bow, balancing opposing forces to tension the entire anterior fascial network." }
-    ],
-    shiva: [
-        { name: "The 8,400,000 Divine Variations Matrix", tier: "8,400,000 Infinite Divine Asanas", description: "Lord Shiva declared that there are as many asanas as there are living creatures in the cosmos. You are interacting with a fragment of the infinite cosmic expansion blueprint." },
-        { name: "Ananda Tandava (Dance of Bliss)", tier: "8,400,000 Infinite Divine Asanas", description: "The wild cosmic dance postures of creation, preservation, destruction, illusion, and ultimate liberation." },
-        { name: "Siddhasana (Accomplished Seat)", tier: "8,400,000 Infinite Divine Asanas", description: "The supreme clean posture designed to stabilize life-force streams directly into the crown matrix." },
-        { name: "Shivasana (The Cosmic Anchor)", tier: "8,400,000 Infinite Divine Asanas", description: "A divine alignment capturing the absolute stillness of cosmic space itself before form manifests." },
-        { name: "Virabhadrasana IV (Celestial Warrior)", tier: "8,400,000 Infinite Divine Asanas", description: "A form representing the destructive yet righteous aspects of cosmic force, slicing through base ignorance." }
-    ]
-};
+// --- BASE POSTURE ARCHITECTURE SEEDS ---
+const baseAsanas = [
+    "Padmasana", "Bhujangasana", "Garudasana", "Tadasana", "Adho Mukha Svanasana", 
+    "Trikonasana", "Sirsasana", "Natarajasana", "Paschimottanasana", "Bakasana", 
+    "Dhanurasana", "Siddhasana", "Shivasana", "Virabhadrasana", "Vrikshasana",
+    "Sukhasana", "Matsyasana", "Halasana", "Ustrasana", "Chakrasana", "Mayurasana"
+];
+
+const cosmicModifiers = [
+    "Internal Meditative Focus Alignment", "Dynamic Heart-Opening Extension", 
+    "Sovereign Horizon Vantage Elevation", "Celestial Zenith Axis Extension", 
+    "Neural Pathway Recalibration Inversion", "Sacred Geometric Triad Orientation", 
+    "Pure Awareness Core Stabilization", "Fluid Bliss Creation Sequence", 
+    "Central Energy Axis Compression", "Pranic Life-Force Stream Stabilization",
+    "Absolute Stillness Void Suspension", "Ignited Gastric Fire Core Fold"
+];
+
+const divineAttributes = [
+    "of Lord Shiva's Eternal Vision", "of Unconditioned Cosmic Bliss", "of Radical Contentment Mastery",
+    "of the Infinite Matrix Horizon", "of Sovereign Spiritual Awakening", "of Supreme Geometrical Balance"
+];
+
+// --- UNIVERSAL INDEXING HASH FORMULA ---
+function generateAsanaObject(tierKey, id) {
+    const base = baseAsanas[id % baseAsanas.length];
+    const modifier = cosmicModifiers[(id * 3) % cosmicModifiers.length];
+    const attribute = divineAttributes[(id * 7) % divineAttributes.length];
+    
+    if (tierKey === "tier1") {
+        return {
+            name: `${base} // Foundational Mode #${id}`,
+            tier: "Tier 1: 84 Foundational Asanas",
+            description: `Core structural blueprint configuration #${id} out of 84. This layout features a ${modifier} anchoring physical symmetry.`
+        };
+    } else if (tierKey === "tier2") {
+        return {
+            name: `${base} Extensio // Master Chart v${id}`,
+            tier: "908 Master Chart Edition",
+            description: `Advanced chart system configuration position #${id} of 908. Realizing a specialized ${modifier} integrated directly with the essence ${attribute}.`
+        };
+    } else if (tierKey === "shiva") {
+        return {
+            name: `Divine Form #${id} // ${base} Manifestation`,
+            tier: "8,400,000 Infinite Divine Asanas",
+            description: `Cosmic expansion matrix coordinate sequence position ${id.toLocaleString()} out of 8,400,000. Lord Shiva's unique vibrational signature channeling the profound light ${attribute}.`
+        };
+    }
+}
 
 // --- DOM ELEMENT SELECTION BLOCKS ---
 let tierSelect, manifestBtn, tierBadge, poseTitle, poseDescription;
-let cardTier1, cardTier2, cardShiva, tierGallery, galleryTitle;
+let cardTier1, cardTier2, cardShiva, tierGallery, galleryTitle, searchContainer, coordinateInput, searchLabel;
 
 window.onload = function() {
     tierSelect = document.getElementById("tier-select");
@@ -35,18 +58,20 @@ window.onload = function() {
     poseTitle = document.getElementById("pose-title");
     poseDescription = document.getElementById("pose-description");
     
-    // New components
     tierGallery = document.getElementById("tier-gallery");
     galleryTitle = document.getElementById("gallery-title");
+    searchContainer = document.getElementById("search-container");
+    coordinateInput = document.getElementById("coordinate-input");
+    searchLabel = document.getElementById("search-label");
 
     cardTier1 = document.getElementById("card-tier1");
     cardTier2 = document.getElementById("card-tier2");
     cardShiva = document.getElementById("card-shiva");
 
-    // Default configuration option values
     tierSelect.value = "tier1";
 
     manifestBtn.addEventListener("click", manifestRandomPose);
+    coordinateInput.addEventListener("input", handleCoordinateSearch);
 
     cardTier1.addEventListener("click", () => triggerCardSelection("tier1"));
     cardTier2.addEventListener("click", () => triggerCardSelection("tier2"));
@@ -58,54 +83,77 @@ function triggerCardSelection(selectedCategory) {
     manifestRandomPose();
 }
 
-// --- ENGINE MANIFESTATION ENGINE ---
+function getTierLimits(tierValue) {
+    if (tierValue === "tier1") return { max: 84, key: "tier1" };
+    if (tierValue === "tier2") return { max: 908, key: "tier2" };
+    return { max: 8400000, key: "shiva" };
+}
+
+// --- CORE MANIFESTATION RUNNER ---
 function manifestRandomPose() {
-    const selectedValue = tierSelect.value;
-    let availablePoses = [];
+    const limits = getTierLimits(tierSelect.value);
+    
+    // Pick a totally random number anywhere in the true range scale limits
+    const randomID = Math.floor(Math.random() * limits.max) + 1;
+    
+    // Sync search input box context visual elements
+    searchContainer.style.display = "block";
+    galleryTitle.style.display = "block";
+    coordinateInput.max = limits.max;
+    coordinateInput.value = randomID;
+    searchLabel.textContent = `Explore Range (1 - ${limits.max.toLocaleString()}):`;
 
-    if (selectedValue === "all") {
-        availablePoses = [...poseDatabase.tier1, ...poseDatabase.tier2, ...poseDatabase.shiva];
-    } else if (selectedValue === "tier1") {
-        availablePoses = poseDatabase.tier1;
-    } else if (selectedValue === "tier2") {
-        availablePoses = poseDatabase.tier2;
-    } else if (selectedValue === "shiva") {
-        availablePoses = poseDatabase.shiva;
-    }
+    renderGalleryView(limits.key, randomID, limits.max);
+}
 
-    // 1. Pick and show the primary randomized highlight pose
-    if (availablePoses.length > 0) {
-        const randomIndex = Math.floor(Math.random() * availablePoses.length);
-        const selectedPose = availablePoses[randomIndex];
+// --- REALTIME COORDINATE NAVIGATOR SEARCH ---
+function handleCoordinateSearch() {
+    const limits = getTierLimits(tierSelect.value);
+    let userVal = parseInt(coordinateInput.value);
 
-        displayPose(selectedPose);
+    if (isNaN(userVal) || userVal < 1) userVal = 1;
+    if (userVal > limits.max) userVal = limits.max;
+    
+    coordinateInput.value = userVal;
+    renderGalleryView(limits.key, userVal, limits.max);
+}
 
-        // 2. Clear out old gallery cards and print ALL options in this tier group
-        tierGallery.innerHTML = "";
-        galleryTitle.style.display = "block"; // Turn on title visibility
+// --- VIEWPORT VIEWER RENDERER ---
+function renderGalleryView(tierKey, targetID, maxLimit) {
+    // 1. Force the main display viewer card to target this exact coordinate item
+    const focalPose = generateAsanaObject(tierKey, targetID);
+    tierBadge.textContent = focalPose.tier;
+    poseTitle.textContent = focalPose.name;
+    poseDescription.textContent = focalPose.description;
 
-        availablePoses.forEach(pose => {
-            // Create a small card element for each pose option
-            const card = document.createElement("div");
-            card.className = "gallery-card";
-            
-            card.innerHTML = `
-                <div class="gallery-pose-name">${pose.name}</div>
-                <div class="gallery-pose-desc">${pose.description.substring(0, 75)}...</div>
-            `;
+    // 2. Build out neighboring scrolling coordinates so users can browse forward/backward sequentially
+    tierGallery.innerHTML = "";
+    
+    let start = Math.max(1, targetID - 4);
+    let end = Math.min(maxLimit, start + 8);
+    if (end - start < 8) start = Math.max(1, end - 8);
 
-            // If a user clicks an option from the list, load it up to the main display panel!
-            card.addEventListener("click", () => displayPose(pose));
+    for (let i = start; i <= end; i++) {
+        const neighboringPose = generateAsanaObject(tierKey, i);
+        const card = document.createElement("div");
+        card.className = "gallery-card";
+        
+        // Highlight the actively active custom target sequence code block card frame
+        if (i === targetID) {
+            card.style.borderColor = "#cc721b";
+            card.style.backgroundColor = "#1c1918";
+        }
 
-            tierGallery.appendChild(card);
+        card.innerHTML = `
+            <div class="gallery-pose-name">${neighboringPose.name}</div>
+            <div class="gallery-pose-desc">${neighboringPose.description.substring(0, 95)}...</div>
+        `;
+
+        card.addEventListener("click", () => {
+            coordinateInput.value = i;
+            renderGalleryView(tierKey, i, maxLimit);
         });
+
+        tierGallery.appendChild(card);
     }
 }
-
-// Helper to write values into the central viewport panel
-function displayPose(pose) {
-    tierBadge.textContent = pose.tier;
-    poseTitle.textContent = pose.name;
-    poseDescription.textContent = pose.description;
-}
-

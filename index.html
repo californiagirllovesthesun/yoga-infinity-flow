@@ -156,14 +156,41 @@
             margin: 0 auto;
         }
 
-        /* NEW Section: Tier Options Gallery Grid */
+        /* Dynamic Navigation Search Module */
+        #search-container {
+            width: 100%;
+            max-width: 900px;
+            margin-bottom: 20px;
+            text-align: center;
+            display: none;
+        }
+        #search-container input {
+            background-color: #141212;
+            color: #e5a93c;
+            border: 1px solid #24201e;
+            padding: 12px;
+            font-size: 1rem;
+            border-radius: 6px;
+            width: 250px;
+            text-align: center;
+            font-family: inherit;
+        }
+        #search-container label {
+            color: #8c8275;
+            font-size: 0.9rem;
+            margin-right: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Tier Options Gallery Grid */
         #gallery-title {
             color: #f7e7ad;
             font-size: 1.2rem;
             letter-spacing: 2px;
             text-transform: uppercase;
             margin: 20px 0;
-            display: none; /* Hidden until Manifest button is clicked */
+            display: none;
         }
         #tier-gallery {
             display: grid;
@@ -215,7 +242,7 @@
             <div class="metric-label">Master Chart</div>
         </div>
         <div class="metric-card" id="card-shiva">
-            <div class="metric-number">8,000</div>
+            <div class="metric-number">8,400,000</div>
             <div class="metric-label">Variations</div>
         </div>
     </div>
@@ -224,7 +251,6 @@
         <div class="panel-title">Choose a Tier and Manifest a Pose</div>
         <div class="interface-row">
             <select id="tier-select">
-                <option value="all">All Available Asanas</option>
                 <option value="tier1">84 Foundational Asanas</option>
                 <option value="tier2">908 Master Chart Edition</option>
                 <option value="shiva">8,400,000 Divine Asanas of Lord Shiva</option>
@@ -239,7 +265,12 @@
         <p id="pose-description">The ultimate cross-legged baseline architecture anchoring structural symmetry for deep cosmic internal meditative focus.</p>
     </div>
 
-    <div id="gallery-title">Available Postures In Selected Tier</div>
+    <div id="search-container">
+        <label id="search-label" for="coordinate-input">Enter Matrix Coordinate:</label>
+        <input type="number" id="coordinate-input" min="1" value="1">
+    </div>
+
+    <div id="gallery-title">Available Postures Matrix Range</div>
     <div id="tier-gallery"></div>
 
     <script src="app.js"></script>

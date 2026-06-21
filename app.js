@@ -39,6 +39,8 @@ window.onload = function() {
     cardTier2 = document.getElementById("card-tier2");
     cardShiva = document.getElementById("card-shiva");
 
+    teirSeclect.value = "tier1";"    
+
     manifestBtn.addEventListener("click", manifestRandomPose);
 
     cardTier1.addEventListener("click", () => triggerCardSelection("tier1"));

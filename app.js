@@ -20,7 +20,7 @@ const divineAttributes = [
     "of the Infinite Matrix Horizon", "of Sovereign Spiritual Awakening", "of Supreme Geometrical Balance"
 ];
 
-// --- OPTIONS 5, 6, 7 TEXT MATRIX POOLS ---
+// --- OPTIONS 5, 6, 7, 8 TEXT MATRIX POOLS ---
 const sakshiPractices = [
     {
         name: "Witness Intercept — Sakshi Bhava 👁️",
@@ -46,6 +46,15 @@ const ashtangaLimbs = [
     { name: "8. Samadhi // Absolute Liberation", tier: "7. Patanjali's Eight Limbs Roadmap", description: "The complete absorption of identity where the witness and the object of meditation merge into single unified consciousness." }
 ];
 
+// Tier 8 Specialist Singularity Data Set
+const samadhiSingularity = [
+    {
+        name: "Samadhi // Absolute Liberation 🌌",
+        tier: "Tier 8: Ultimate Reality Node",
+        description: "The complete absorption of identity where the witness (*Sakshi*) and the object of meditation merge into a single unified consciousness.\n\nThe cosmic matrix grid dissolves; there is no longer a programmer, a code, or a screen—only the infinite space of pure awareness (*Sat-Chit-Ananda*)."
+    }
+];
+
 // --- UNIVERSAL INDEXING DATA HASH GENERATOR ---
 function generateAsanaObject(tierKey, id) {
     const base = baseAsanas[id % baseAsanas.length];
@@ -64,8 +73,9 @@ function generateAsanaObject(tierKey, id) {
 }
 
 // --- DOM REGISTRATION SELECTION BLOCKS ---
-let tierSelect, manifestBtn, starBtn, exitBtn, tierBadge, poseTitle, poseDescription;
+let tierSelect, manifestBtn, starBtn, exitBtn, tierBadge, poseTitle, poseDescription, displayPanel;
 let cardTier1, cardTier2, cardVariations, tierGallery, galleryTitle, searchContainer, coordinateInput, searchLabel;
+let cosmicMediaBox, cosmicImg;
 
 window.onload = function() {
     tierSelect = document.getElementById("tier-select");
@@ -75,12 +85,17 @@ window.onload = function() {
     tierBadge = document.getElementById("tier-badge");
     poseTitle = document.getElementById("pose-title");
     poseDescription = document.getElementById("pose-description");
+    displayPanel = document.getElementById("display-panel");
     
     tierGallery = document.getElementById("tier-gallery");
     galleryTitle = document.getElementById("gallery-title");
     searchContainer = document.getElementById("search-container");
     coordinateInput = document.getElementById("coordinate-input");
     searchLabel = document.getElementById("search-label");
+
+    // Dynamic Elements mapping for media layout structures
+    cosmicMediaBox = document.getElementById("cosmic-media-box");
+    cosmicImg = document.getElementById("cosmic-img");
 
     cardTier1 = document.getElementById("card-tier1");
     cardTier2 = document.getElementById("card-tier2");
@@ -95,7 +110,7 @@ window.onload = function() {
 
     cardTier1.addEventListener("click", () => triggerCardSelection("tier1"));
     cardTier2.addEventListener("click", () => triggerCardSelection("tier2"));
-    cardVariations.addEventListener("click", () => triggerCategorySelection("variations"));
+    cardVariations.addEventListener("click", () => triggerCardSelection("variations"));
 };
 
 function triggerCardSelection(selectedCategory) {
@@ -116,6 +131,10 @@ function manifestRandomPose() {
     const currentTier = tierSelect.value;
     const limits = getTierLimits(currentTier);
 
+    // Baseline layout resets
+    if (cosmicMediaBox) cosmicMediaBox.style.display = "none";
+    if (displayPanel) displayPanel.classList.remove('cosmic-active');
+
     if (limits.numerical) {
         searchContainer.style.display = "block";
         galleryTitle.style.display = "block";
@@ -133,6 +152,16 @@ function manifestRandomPose() {
         if (currentTier === "sakshi") pool = sakshiPractices;
         else if (currentTier === "wisdom") pool = wisdomMatrix;
         else if (currentTier === "limbs") pool = ashtangaLimbs;
+        else if (currentTier === "samadhi") {
+            pool = samadhiSingularity;
+            // Activate cosmic styling extensions
+            if (cosmicMediaBox && cosmicImg) {
+                cosmicImg.src = "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=1200&q=80";
+                cosmicImg.alt = "Deep space star matrix nebula representing total energetic convergence";
+                cosmicMediaBox.style.display = "block";
+            }
+            if (displayPanel) displayPanel.classList.add('cosmic-active');
+        }
 
         if (pool.length > 0) {
             const randomIdx = Math.floor(Math.random() * pool.length);

@@ -19,9 +19,11 @@
             padding: 40px 20px;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: center;    /* Keeps items centered horizontally */
+            justify-content: center; /* Forces everything to stay locked to the layout center */
+            width: 100%;            /* Prevents the browser from squeezing elements to the left */
+            box-sizing: border-box; /* Ensures padding doesn't break the centering on smaller screens */
         }
-        
         #header-container {
             text-align: center;
             margin-bottom: 50px;

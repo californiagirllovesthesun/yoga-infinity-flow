@@ -7,15 +7,9 @@
     <title>Yoga Infinity Flow Matrix</title>
     
     <meta name="description" content="Yoga Infinity Flow Matrix - An interactive digital universe exploring 84 foundational asanas, a 908 master chart edition, and thousands of style variations.">
-    <meta name="keywords" content="yoga matrix, infinite yoga flow, foundational asanas, yoga postures database, master chart yoga">
+    <meta name="keywords" content="yoga matrix, infinite yoga flow, foundational asanas, yoga postures database, master chart yoga, ashtanga, samadhi">
     <meta name="author" content="Kaitlynn Carlson">
 
-    <style>
-        body {
-
-    
-    
-    <title>Yoga Infinity Flow Matrix</title>
     <style>
         body {
             background-color: #0f0e0e;
@@ -104,7 +98,7 @@
         }
         .interface-row {
             display: flex;
-            flex-direction: column; /* Stacks the action buttons cleanly */
+            flex-direction: column;
             align-items: center;
             gap: 15px;
         }
@@ -179,7 +173,16 @@
             box-sizing: border-box;
             text-align: center;
             margin-bottom: 30px;
+            transition: all 0.5s ease;
         }
+        
+        /* Interactive Cosmic Flow Expansion for Higher Tiers */
+        .cosmic-active {
+            background: radial-gradient(circle at center, #0a0b1e 0%, #03030c 100%) !important;
+            border-color: rgba(99, 102, 241, 0.4) !important;
+            box-shadow: 0 0 25px rgba(99, 102, 241, 0.2);
+        }
+        
         #tier-badge {
             color: #e5a93c;
             font-size: 0.85rem;
@@ -200,6 +203,27 @@
             max-width: 700px;
             margin: 0 auto;
             white-space: pre-line;
+        }
+
+        /* Cosmic Image Components for Samadhi */
+        #cosmic-media-box {
+            display: none;
+            width: 100%;
+            max-width: 600px;
+            margin: 25px auto 0 auto;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .cosmic-photo {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: brightness(0.9) contrast(1.1);
+            transition: transform 2s ease;
+        }
+        #display-panel:hover .cosmic-photo {
+            transform: scale(1.06);
         }
 
         /* Coordinate Finder Search Input */
@@ -305,6 +329,7 @@
                     <option value="sakshi">5. Invoke Sakshi Bhava (Witness Consciousness)</option>
                     <option value="wisdom">6. Explore Yoga Wisdom & Eternal Happiness</option>
                     <option value="limbs">7. Traverse Patanjali's Eight Limbs (Ashtanga)</option>
+                    <option value="samadhi">8. Samadhi // Absolute Liberation</option>
                 </select>
                 <button id="manifest-btn">Manifest Pose</button>
             </div>
@@ -317,6 +342,10 @@
         <div id="tier-badge">Tier 1: Foundational Asana</div>
         <h2 id="pose-title">Padmasana (Lotus Seat)</h2>
         <p id="pose-description">The ultimate cross-legged baseline architecture anchoring structural symmetry for deep cosmic internal meditative focus.</p>
+        
+        <div id="cosmic-media-box">
+            <img id="cosmic-img" src="" alt="Cosmic Matrix Visualization" class="cosmic-photo">
+        </div>
     </div>
 
     <div id="search-container">
